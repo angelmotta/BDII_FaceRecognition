@@ -8,13 +8,15 @@ def MD(A, B):
 
 
 def knnSearchMD(data, Q, k):
+    print("--- KnnSearchMD ---")
     resultado = []
     index = 0
     for row in data:
-        distancia = MD(Q, row)
+        distancia = MD(Q, row[1])
         heapq.heappush(resultado, (-distancia, index))
         if len(resultado) > k:
             heapq.heappop(resultado)
+        index += 1
     resultado = [(i, -d) for d, i in resultado]
     resultado.sort(key=lambda tup: tup[1])
     return resultado
