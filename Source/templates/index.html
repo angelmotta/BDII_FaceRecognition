@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Face Recognition</title>
+    <link rel="shortcut icon" href=" {{url_for('static', filename='img/tweet.ico')}} ">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">
+            🧿 Practica4.
+        </a>
+        <p class="description">
+            Base de Datos II
+        </p>
+    </header>
+    <main>
+        <div class="central">
+            <div class="image">
+                <img src="{{ url_for('static', filename='img/face-detection.png') }}" alt="Logo">
+            </div>
+            <form action="" enctype="multipart/form-data">
+                <div class="inner">
+                    <input type="file" name="file" id="file" hidden="hidden">
+                    <label for="file" id="label">Elegir Imagen</label>
+                    <span id="file_text">No se ha elegido ninguna imagen</span>
+                </div>
+                <input type="submit" value="Cargar" id="btn">
+            </form>
+            <!--<form action="{{ url_for('Recognition') }}">
+                <img src="{{ url_for('static', filename='img/search.png') }}" alt="buscar">
+                <input type="text" name="query" placeholder="Consulta" id="buscador">
+                <input type="submit" value="Buscar" id="btn">
+            </form>-->
+        </div>
+    </main>
+    <footer>
+        <div class="year">
+            <p>© <script>document.write(new Date().getFullYear())</script>
+                Proyecto. Todos los derechos reservados</p>
+        </div>
+        <div class="names">
+            <p>Angel</p>
+            <p>Piero</p>
+            <p>Jeanlee</p>
+        </div>
+    </footer>
+
+    <script>
+        const file = document.getElementById("file");
+        const labelBtn = document.getElementById("label");
+        const textFile = document.getElementById("file_text");
+
+        file.addEventListener("change", () => {
+            if (file.value) {
+                textFile.innerHTML = file.value
+                .match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+            }
+        })
+    </script>
+
+</body>
+</html>
