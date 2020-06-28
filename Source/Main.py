@@ -4,7 +4,7 @@ from KNNManhattan import knnSearchMD
 from RTree import buildRTree
 
 
-dirFotos = "fotos_bd"
+dirFotos = "fotos_bd_2"
 resDB = genCaracteristicas(dirFotos)
 q_pic = genCaracPic("fotos_test/vizcarraTest.jpg")
 
