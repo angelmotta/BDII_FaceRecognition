@@ -173,9 +173,11 @@ y a su vez se valida que el formato del archivo entregado sea el de una imagen (
 
 Luego de la validación, la imagen porporcionada se guarda en la carpeta `uploads/`. Cabe señalar que la ruta relativa de la imagen se guarda en la variable `image_path`. Después,se procede a generar el vector característico de la imagen con el método `genCaracPic(image_path)` y su valor se almacena en la variale `q_pic`.
 
+Para los resulados que coiciden con la imagen que el usuario provee, para el frontend estamos utlizando los K vecinos más cercanos con la distancia euclideana. Para obtener dicho resultado, se emplea el método `knnSearchED(resDB, q_pic, kValue)`, el cual devuelve una lista de tuplas con las etiquetas de las imagenes y sus correspondientes distancias.
+
+Para mostar los resultados en el navegador, creamos una lista de tuplas `results` que contendrá el nombre específico de las imagenes internas con su respectivas distancias. Dicha lista es pasada a la página `resultados.html` donde se renderizan los resultados para ser mostrados de forma amigable.
+
 ### Demostración de la aplicación
 En la siguiente demostración se sube una foto de Britney Spears para realizar la consulta. Internamente se ejecuta el algoritmo KNN Secuencial con cola de prioridad utilizando la distancia eucludiana. El resultado que se muestra en el frontend son los k elementos más similares que se tienen de la colección total de fotos.
-
-Para los resulados que coiciden con la imagen que el usuario provee, para el frontend estamos utlizando los K vecinos más cercanos con la distancia euclideana. Para obtener dicho resultado, se emplea el método `knnSearchED(resDB, q_pic, kValue)`, el cual devuelve una lista de tuplas con las etiquetas de las imagenes y sus correspondientes distancias.
 
 ![](images/test.gif)
