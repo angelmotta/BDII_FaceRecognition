@@ -5,22 +5,6 @@
 ### Implementación algoritmo KNN secuencial con cola de prioridad
 Se ha implementado el algoritmo para la búsqueda KNN Secuencial, que recibe como parámetros la data, el query y el número k de resultados que se quiere obtener. Se ha usado la estructura de datos heap en la cola de prioridades para hacer el ordenamiento de los elementos de acuerdo a sus distancias. El código se muestra a continuación.
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-tex2jax: {
-inlineMath: [['$','$'], ['\\(','\\)']],
-processEscapes: true},
-jax: ["input/TeX","input/MathML","input/AsciiMath","output/CommonHTML"],
-extensions: ["tex2jax.js","mml2jax.js","asciimath2jax.js","MathMenu.js","MathZoom.js","AssistiveMML.js", "[Contrib]/a11y/accessibility-menu.js"],
-TeX: {
-extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"],
-equationNumbers: {
-autoNumber: "AMS"
-}
-}
-});
-</script>
-
 ```
 def knnSearchMD(data, Q, k):
     print("--- KnnSearchMD ---")
