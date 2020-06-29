@@ -30,14 +30,19 @@
                     {% set image_name = 'Britney_Spears_0006.jpg' %}
                     <img src="{{ url_for('show_image', filename=image_name) }}" alt="_image">
                 </div>
-                <div class="info">
+                <div class="desc">
                     <span class="position">#1</span>
                     {% set nombre = image_name.split('_') %}
                     <span class="name" >{{nombre[0]}} {{nombre[1]}}</span>
                 </div>
+                <div class="file_desc">
+                    <span class="titule">filename</span>
+                    <span class="filename">image_name</span>
+                </div>
                 <div class="score">
+                    <span class="sc">Score: </span>
                     <div class="line"></div>
-                    0.6
+                    <span class="number">0.9</span>
                 </div>
             </div>
 
@@ -88,7 +93,7 @@
                     0.6
                 </div>
             </div>
-            
+
         </section>
     </main>
 

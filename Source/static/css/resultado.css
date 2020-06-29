@@ -52,7 +52,7 @@ main {
 
 .resultado {
     width: 250px;
-    height: 300px;
+    min-height: 300px;
     border: 1px solid #d8d8d8;
     margin: 10px 5px;
     border-radius: 15px;
@@ -72,9 +72,23 @@ main {
     width: 100%;
 }
 
+.resultado .desc {
+    border-bottom: 1px solid #d8d8d8;
+}
 
+.resultado .desc .position {
+    display: inline-block;
+    font-weight: bold;
+    color: white;
+    /*background-image: linear-gradient(to right bottom, #fe958b, #ff8284, #ff6e81, #ff5781, #fd3c84);*/
+    background-image: linear-gradient(to right bottom, #5370f8, #0097ff, #00b8ff, #00d4ff, #3cecfd);
+    padding: 5px;
+}
 
-
+.resultado .desc .name {
+    color: #2b2b2b;
+    padding-left: 10px;
+}
 
 footer {
     height: 12vh;
