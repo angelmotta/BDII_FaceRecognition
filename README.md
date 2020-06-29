@@ -126,3 +126,4 @@ Se ha realizado una serie de pruebas con diferente cantidad de imágenes en tota
 | N = 12800| 58.183 ms | 1239.772 ms    |
 
 ## Implementación FrontEnd: Motor de Busqueda
+![](images/test.gif)
