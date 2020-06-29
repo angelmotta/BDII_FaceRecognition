@@ -10,21 +10,8 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def upload_image():
-    if request.method == 'POST':
-        if 'file' not in request.files:
-            return redirect(request.url)
-
-        file = request.files['file']
-
-        if file.filename == '':
-            return redirect(request.url)
-
-        if file and allowed_file(file.filename):
-            file.save("uploads/"+file.filename)
-            return "Hecho"
-
     return render_template("index.html")
 
 
@@ -35,7 +22,7 @@ def Recognition():
     filename = file.filename
 
     if file and allowed_file(filename):
-        # file.save("uploads/" + filename)
+        file.save("uploads/" + filename)
         return "Hecho"
         
     return redirect('/')
