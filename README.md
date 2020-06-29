@@ -38,4 +38,19 @@ A continuación, se muestre el detalle de los objetos recuperados con sus respec
 |Anna_Kournikova_0010.jpg <br> 0.6446221120051456|Anna_Kournikova_0010.jpg <br> 5.60285013075918|
 |Anna_Kournikova_0012.jpg <br> 0.6726600133361608|David_Beckham_0009.jpg <br> 6.1218747473321855|
 
+### Experimento 2: Eficiencia KNN-RTree vs KNN-Secuencial
+Se ha realizado una serie de pruebas con diferente cantidad de imágenes en total. Para todas las cantidades, se ha tomado un k = 16 utilizando como objeto de consulta, una foto de la cantante Britney Spears, la cual cuenta con 14 fotos de las N que va a haber en cada una de las pruebas. Se han obtenido los siguientes tiempos como resultado.
+
+
+|Tiempo    | KNN-RTree | KNN-Secuencial |
+|----------|-----------|----------------|
+| N = 100  | 1.028 ms  | 10.254 ms      |
+| N = 200  | 0.647 ms  | 21.378 ms      |
+| N = 400  |0.875|0.875|
+| N = 800  |0.875|0.875|
+| N = 1600 |0.875|0.875|
+| N = 3200 |0.875|0.875|
+| N = 6400 |0.875|0.875|
+| N = 12800|0.875|0.875|
+
 ## Implementación FrontEnd: Motor de Busqueda
