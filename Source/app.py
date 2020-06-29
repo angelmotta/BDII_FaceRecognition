@@ -26,6 +26,9 @@ def upload_image():
 
 @app.route("/recognition", methods=['POST'])
 def Recognition():
+    if request.form['kvalue'] == '':
+        return redirect('/')
+    
     print(request.files['file'])
     print(request.form['kvalue'])
 
