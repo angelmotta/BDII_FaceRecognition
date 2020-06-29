@@ -45,7 +45,7 @@ Se ha realizado una serie de pruebas con diferente cantidad de imágenes en tota
 |Tiempo    | KNN-RTree | KNN-Secuencial |
 |----------|-----------|----------------|
 | N = 100  | 1.028 ms  | 10.254 ms      |
-| N = 200  | 1	   | 1 |
+| N = 200  | 0.647 ms  | 21.378 ms      |
 | N = 400  |0.875|0.875|
 | N = 800  |0.875|0.875|
 | N = 1600 |0.875|0.875|
