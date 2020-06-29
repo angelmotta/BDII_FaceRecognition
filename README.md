@@ -83,6 +83,18 @@ def toArray(row):
     return temp
 ```
 
+## Experimentación
+
+La ejecución de las siguientes pruebas se realizaron utilizando el archivo "Main.py" desde el se realiza como primer paso la extracción de los vectores caracteristicos de cada una de las fotos (genCaracteristicas)
+
+```
+dirFotos = "fotos_n100"
+resDB = genCaracteristicas(dirFotos)
+q_pic = genCaracPic("fotos_query/britney_query_001.jpg")
+k = 16
+```
+Posterior a esto, se realiza las llamadas a las funciones de busqueda KNN secuencial y busqueda KNN con índice R-Tree
+
 ### Experimento 1: Precisión KNN
 Realizamos el experimento de precisión del algoritmo KNN utilizando como objeto de consulta, una foto de la cantante Britney Spears. Nuestra colección de fotos contó con 14 fotos de esta cantante (fotos diferentes a la utilizada en la consulta)
 
@@ -127,12 +139,6 @@ Se ha realizado una serie de pruebas con diferentes cantidades de imágenes. Par
 | N = 3200 | 13.193 ms | 323.343 ms     |
 | N = 6400 | 31.653 ms | 734.907 ms     |
 | N = 12800| 58.183 ms | 1239.772 ms    |
-
-Estos resultados se pueden ver en el siguiente gráfico.
-
-![](images/grafico_1.png)
-
-En este gráfico se puede ver claramente que mientras que el tiempo de consulta del algoritmo KNN-Secuencial tiende a ser lineal a medida que avanza el tiempo, el algoritmo KNN-RTree, por el contrario, tiende a ser logarítmico a medida que avanza el tiempo. Por lo cual, se concluye que para una búsqueda, la mejor opción es usar el algoritmo de KNN-RTree por encima de un algoritmo KNN-Secuencial.
 
 ## Implementación FrontEnd: Motor de Busqueda
 
