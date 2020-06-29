@@ -40,6 +40,27 @@ main {
     
 }
 
+h2 {
+    color: #a0a0a0;
+    text-align: center;
+}
+
+.cabecera {
+    width: 100%;
+}
+
+.cabecera p {
+    color: #bebebe;
+    font-size: 17px;
+    margin: 10px 0 20px;
+    text-align: center;
+}
+
+.cabecera p b {
+    border-bottom: 1px dashed;
+}
+
+
 .resultados {
     margin-top: 70px;
     width: 900px;
