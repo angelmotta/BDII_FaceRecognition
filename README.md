@@ -33,7 +33,7 @@ def ED(x, y):
 ```
 Esta función está basada en el siguiente esquema de la distancia euclidiana.
 
-![](images/distancia_euclidiana.png)
+<img src="images/distancia_euclidiana.png" width="65%">
 
 ### Distancia Manhattan
 Para calcular la distancia de manhattan, se ha creado una función ```MD()``` a la que se le envían como argumentos dos arreglos y retorna su distancia de manhattan de ambos arreglos, como se muestra a continuación.
@@ -47,7 +47,7 @@ def MD(A, B):
 ```
 Esta función está basada en el siguiente esquema de la distancia de manhattan.
 
-![](images/distancia_manhattan.png)
+<img src="images/distancia_manhattan.png" width="65%">
 
 ### Implementación del KNN con índice RTree
 Para construir el índice de R-Tree se ha hecho uso de la librería R-Tree para Python y se ha creado una función para la construcción de este índice, la cual recibe como parámetros la data que se ha construído anteriormente que contiene la ruta de las imágenes y los vectores característicos. Como estos vectores tienen una longitud de 128, se ha colocado que el índice de R-Tree va a tener 128 dimensiones. Se ha colocado como punto de inicio y final de cada dimensión el mismo vector, por lo que cada dimensión solamente va a tener un punto. Una vez que se construye el índice, se retorna junto con un diccionario que va a indexar el nombre del archivo con el índice que tiene en el R-Tree. La función que construye el índice de R-Tree se muestra a continuación.
@@ -128,4 +128,8 @@ Se ha realizado una serie de pruebas con diferente cantidad de imágenes en tota
 | N = 12800| 58.183 ms | 1239.772 ms    |
 
 ## Implementación FrontEnd: Motor de Busqueda
+
+### Demostración de la aplicación
+En la siguiente demostración se sube una foto de Britney Spears para realizar la consulta. Internamente se ejecuta el algoritmo KNN Secuencial con cola de prioridad utilizando la distancia eucludiana. El resultado que se muestra en el frontend son los k elementos más similares que se tienen de la colección total de fotos.
+
 ![](images/test.gif)
