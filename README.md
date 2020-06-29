@@ -131,7 +131,7 @@ Se ha realizado una serie de pruebas con diferente cantidad de imágenes en tota
 
 ### Llamada para la generación de los vectores característicos
 
-Al inicio del código se hace una llamada al método `genCaracteristicas()` el cual se encarga de generar los vectores característicos de las imagenes almacenadas internamente. El resultado de dicho método se almacena en la variable global `resDB`, la cuál será utilizada posteriormente.
+Al inicio del código se hace una llamada al método `genCaracteristicas(dirFotos)` el cual se encarga de generar los vectores característicos de las imagenes almacenadas internamente en la carpeta que contiene la variable `dirFotos`. El resultado de dicho método se almacena en la variable global `resDB`, la cuál será utilizada posteriormente.
 
 ### Validación y presentación de los resultados
 
