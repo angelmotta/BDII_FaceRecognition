@@ -1,9 +1,8 @@
-from flask import Flask, jsonify, request, redirect, render_template
+from flask import Flask, jsonify, request, redirect, render_template, send_from_directory
 from Extraccion import genCaracteristicas, genCaracPic
 from KNNEuclidiano import knnSearchED
 from KNNManhattan import knnSearchMD
 from RTree import buildRTree
-
 import os
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
@@ -35,16 +34,23 @@ def Recognition():
     filename = file.filename
 
     if file and allowed_file(filename):
-        file.save("uploads/" + filename)
-        q_pic = genCaracPic("uploads/"+filename)
+        image_path = "uploads/" + filename
+        file.save(image_path)
+        q_pic = genCaracPic(image_path)
         result = knnSearchED(resDB, q_pic, kValue)
+
         print(result)
         for index, score in result:
             print(resDB[index][0])
             print(score)
-        return "Hecho Post"
+        return render_template("resultados.html")
 
     return redirect('/')
+
+
+@app.route("/image/<filename>")
+def show_image(filename):
+    return send_from_directory("fotos_bd_2", filename)
 
 
 if __name__ == "__main__":

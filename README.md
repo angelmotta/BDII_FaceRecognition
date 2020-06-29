@@ -3,10 +3,45 @@
 ## Implementación Backend
 
 ### Implementación algoritmo KNN secuencial con cola de prioridad
+Se ha implementado el algoritmo para la búsqueda KNN Secuencial, que recibe como parámetros la data, el query y el número k de resultados que se quiere obtener. se ha usado la estructura de datos de la cola de prioridades como heap para hacer el ordenamiento de los elementos de acuerdo a sus distancias. El código se muestra a continuación.
+
+```
+def knnSearchMD(data, Q, k):
+    print("--- KnnSearchMD ---")
+    resultado = []
+    index = 0
+    for row in data:
+        distancia = MD(Q, row[1])
+        heapq.heappush(resultado, (-distancia, index))
+        if len(resultado) > k:
+            heapq.heappop(resultado)
+        index += 1
+    resultado = [(i, -d) for d, i in resultado]
+    resultado.sort(key=lambda tup: tup[1])
+    return resultado
+```
 
 ### Distancia Euclidiana
+Para calcular la distancia euclidiana, se ha creado una función ```ED()``` a la que se le envían como argumentos dos arreglos y retorna su distancia euclidiana de ambos arreglos, como se muestra a continuación.
+
+```
+def ED(x, y):
+    res = 0
+    for i in range(len(x)):
+        res += ((x[i] - y[i])**2)
+    return res**0.5
+```
 
 ### Distancia Manhattan
+Para calcular la distancia de manhattan, se ha creado una función ```MD()``` a la que se le envían como argumentos dos arreglos y retorna su distancia de manhattan de ambos arreglos, como se muestra a continuación.
+
+```
+def MD(A, B):
+    resultado = 0
+    for i in range(len(A)):
+        resultado = resultado + abs(A[i] - B[i])
+    return resultado
+```
 
 ### Experimento 1: Precisión KNN
 Realizamos el experimento de precisión del algoritmo KNN utilizando como objeto de consulta, una foto de la cantante Britney Spears. Nuestra colección de fotos contó con 14 fotos de esta cantante (fotos diferentes a la utilizada en la consulta)
@@ -46,10 +81,10 @@ Se ha realizado una serie de pruebas con diferente cantidad de imágenes en tota
 |----------|-----------|----------------|
 | N = 100  | 1.028 ms  | 10.254 ms      |
 | N = 200  | 0.647 ms  | 21.378 ms      |
-| N = 400  |0.875|0.875|
-| N = 800  |0.875|0.875|
-| N = 1600 |0.875|0.875|
-| N = 3200 |0.875|0.875|
+| N = 400  | 1.019 ms  | 30.754 ms      |
+| N = 800  | 3.437 ms  | 78.976 ms      |
+| N = 1600 | 5.923 ms  | 174.091 ms     |
+| N = 3200 | 13.193 ms | 323.343 ms     |
 | N = 6400 |0.875|0.875|
 | N = 12800|0.875|0.875|
 
