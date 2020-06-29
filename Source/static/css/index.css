@@ -82,6 +82,7 @@ form label {
     font-weight: bold;
     cursor: pointer;
     transition: background ease .4s;
+    width: 140px;
 }
 
 form label:hover {
@@ -128,4 +129,9 @@ footer {
 
 .names > p {
     margin-left: 10px;
+}
+
+#kvalue {
+    margin-left: 10px;
+    border: 0px;
 }
