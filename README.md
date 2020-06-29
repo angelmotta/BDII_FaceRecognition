@@ -3,7 +3,7 @@
 ## Implementación Backend
 
 ### Implementación algoritmo KNN secuencial con cola de prioridad
-Se ha implementado el algoritmo para la búsqueda KNN Secuencial, que recibe como parámetros la data, el query y el número k de resultados que se quiere obtener. Se ha usado la estructura de datos heap en la cola de prioridades para hacer el ordenamiento de los elementos de acuerdo a sus distancias. El código se muestra a continuación.
+Se ha implementado el algoritmo para la búsqueda KNN Secuencial, que recibe como parámetros la data, el query y el número k de resultados que se quiere obtener. Se ha usado la estructura de datos heap en la cola de prioridades para hacer el ordenamiento de los elementos de acuerdo a sus distancias. El código se muestra a continuación. $ e^{i \pi} + 1 = 0 $
 
 ```python
 def knnSearchMD(data, Q, k):
