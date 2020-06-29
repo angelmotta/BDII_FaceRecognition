@@ -74,6 +74,25 @@ form .inner {
     overflow: hidden;
 }
 
+form .n2 {
+    width: 230px;
+    margin: auto;
+    margin-top: 15px;
+}
+
+form .n2 input {
+    -moz-appearance:textfield;
+    width: 55px;
+    height: 30px;
+    background-color: white;
+    border: none;
+}
+
+.n2 input::-webkit-outer-spin-button,
+.n2 input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
 form label {
     display: inline-block;
     padding: 8px 18px;
