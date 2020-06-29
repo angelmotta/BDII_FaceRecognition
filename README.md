@@ -3,7 +3,7 @@
 ## Implementación Backend
 
 ### Implementación algoritmo KNN secuencial con cola de prioridad
-Se ha implementado el algoritmo para la búsqueda KNN Secuencial, que recibe como parámetros la data, el query y el número k de resultados que se quiere obtener. se ha usado la estructura de datos de la cola de prioridades como heap para hacer el ordenamiento de los elementos de acuerdo a sus distancias. El código se muestra a continuación.
+Se ha implementado el algoritmo para la búsqueda KNN Secuencial, que recibe como parámetros la data, el query y el número k de resultados que se quiere obtener. Se ha usado la estructura de datos heap en la cola de prioridades para hacer el ordenamiento de los elementos de acuerdo a sus distancias. El código se muestra a continuación.
 
 ```
 def knnSearchMD(data, Q, k):
@@ -22,7 +22,7 @@ def knnSearchMD(data, Q, k):
 ```
 
 ### Distancia Euclidiana
-Para calcular la distancia euclidiana, se ha creado una función ```ED()``` a la que se le envían como argumentos dos arreglos y retorna su distancia euclidiana de ambos arreglos, como se muestra a continuación.
+Para calcular la distancia euclidiana, se ha creado una función ```ED()``` a la que se le envían como argumentos dos arreglos (vectores característicos) y retorna su distancia euclidiana, como se muestra a continuación.
 
 ```
 def ED(x, y):
@@ -31,12 +31,12 @@ def ED(x, y):
         res += ((x[i] - y[i])**2)
     return res**0.5
 ```
-Esta función está basada en el siguiente esquema de la distancia euclidiana.
+Esta función está basada en el siguiente concepto de la distancia euclidiana.
 
 <img src="images/distancia_euclidiana.png" width="65%">
 
 ### Distancia Manhattan
-Para calcular la distancia de manhattan, se ha creado una función ```MD()``` a la que se le envían como argumentos dos arreglos y retorna su distancia de manhattan de ambos arreglos, como se muestra a continuación.
+Para calcular la distancia de manhattan, se ha creado una función ```MD()``` a la que se le envían como argumentos dos arreglos (vectores característicos) y retorna su distancia de manhattan, como se muestra a continuación.
 
 ```
 def MD(A, B):
@@ -45,12 +45,13 @@ def MD(A, B):
         resultado = resultado + abs(A[i] - B[i])
     return resultado
 ```
-Esta función está basada en el siguiente esquema de la distancia de manhattan.
+Esta función está basada en el siguiente concepto de la distancia de manhattan.
 
 <img src="images/distancia_manhattan.png" width="65%">
 
 ### Implementación del KNN con índice RTree
-Para construir el índice de R-Tree se ha hecho uso de la librería R-Tree para Python y se ha creado una función para la construcción de este índice, la cual recibe como parámetros la data que se ha construído anteriormente que contiene la ruta de las imágenes y los vectores característicos. Como estos vectores tienen una longitud de 128, se ha colocado que el índice de R-Tree va a tener 128 dimensiones. Se ha colocado como punto de inicio y final de cada dimensión el mismo vector, por lo que cada dimensión solamente va a tener un punto. Una vez que se construye el índice, se retorna junto con un diccionario que va a indexar el nombre del archivo con el índice que tiene en el R-Tree. La función que construye el índice de R-Tree se muestra a continuación.
+Para construir el índice de R-Tree se ha hecho uso de la librería R-Tree para Python (http://toblerity.org/rtree/). 
+Se ha creado una función para la construcción de este índice, la cual recibe como parámetros la data (construído previamente) que contiene la ruta de las imágenes con sus vectores característicos. Como estos vectores tienen una longitud de 128, se ha definido que el índice de R-Tree va a tener 128 dimensiones. Se ha colocado como punto de inicio y final de cada dimensión el mismo vector, por lo que cada dimensión va a tener un punto. Una vez que se construye el índice, este se retorna junto con un diccionario que relaciona el nombre del archivo con el índice que tiene en el R-Tree. La función que construye el índice de R-Tree se muestra a continuación.
 
 ```
 def buildRTree(data):
@@ -66,7 +67,7 @@ def buildRTree(data):
     return [idx128, dict]
 ```
 
-Como el argumento de la función que se encarga de recibir las coordenadas de cada dimensión, que contiene el mínimo y máximo, recibe solamente una tupla de tamaño 2d, donde d es la dimensión, que para este caso es 128, entonces se ha implementado una función que contruye este vector de tamaño 2*128=256. Esta función se muestra a continuación.
+Como el argumento de la función que se encarga de recibir las coordenadas de cada dimensión, que contiene el mínimo y máximo, este recibe una tupla de tamaño 2d, donde d es la dimensión, que para este caso es 128, entonces se ha implementado una función que contruye este vector de tamaño 2*128=256. Esta función se muestra a continuación.
 
 ```
 def toArray(row):
