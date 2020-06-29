@@ -47,7 +47,7 @@ def Recognition():
 
 @app.route("/image/<filename>")
 def show_image(filename):
-    return send_from_directory("fotos_bd_2", filename)
+    return send_from_directory(dirFotos, filename)
 
 
 if __name__ == "__main__":
