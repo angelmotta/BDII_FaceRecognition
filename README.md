@@ -114,7 +114,7 @@ A continuación, se muestre el detalle de los objetos recuperados con sus respec
 |Anna_Kournikova_0012.jpg <br> 0.6726600133361608|David_Beckham_0009.jpg <br> 6.1218747473321855|
 
 ### Experimento 2: Eficiencia KNN-RTree vs KNN-Secuencial
-Se ha realizado una serie de pruebas con diferente cantidad de imágenes en total. Para todas las cantidades, se ha tomado un k = 16 utilizando como objeto de consulta, una foto de la cantante Britney Spears, la cual cuenta con 14 fotos de las N que va a haber en cada una de las pruebas. Se han obtenido los siguientes tiempos como resultado.
+Se ha realizado una serie de pruebas con diferentes cantidades de imágenes. Para todos los casos, se ha utilizado un valor de k = 16 utilizando como objeto de consulta, una foto de la cantante Britney Spears, la cual cuenta con 14 fotos incluidas en N de la colección. Se ha medido el tiempo de ejecución que toma cada una de las consultas.
 
 
 |Tiempo    | KNN-RTree | KNN-Secuencial |
