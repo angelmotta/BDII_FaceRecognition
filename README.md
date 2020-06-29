@@ -22,7 +22,7 @@ def knnSearchMD(data, Q, k):
 ```
 
 ### Distancia Euclidiana
-Para calcular la distancia euclediana, se ha creado una función ```ED()``` a la que se le envían como argumentos dos arreglos y retorna su distancia euclediana de ambos arreglos, como se muestra a continuación.
+Para calcular la distancia euclidiana, se ha creado una función ```ED()``` a la que se le envían como argumentos dos arreglos y retorna su distancia euclidiana de ambos arreglos, como se muestra a continuación.
 
 ```
 def ED(x, y):
