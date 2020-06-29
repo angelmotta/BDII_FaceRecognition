@@ -9,6 +9,7 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+
 @app.route('/', methods=['GET', 'POST'])
 def upload_image():
     if request.method == 'POST':
@@ -21,15 +22,23 @@ def upload_image():
             return redirect(request.url)
 
         if file and allowed_file(file.filename):
-            
-            return 
+            file.save("uploads/"+file.filename)
+            return "Hecho"
 
     return render_template("index.html")
 
 
-@app.route("/recognition")
+@app.route("/recognition", methods=['POST'])
 def Recognition():
-    return 0
+    print(request.files['file'])
+    file = request.files['file']
+    filename = file.filename
+
+    if file and allowed_file(filename):
+        # file.save("uploads/" + filename)
+        return "Hecho"
+        
+    return redirect('/')
 
 
 if __name__ == "__main__":

@@ -20,7 +20,8 @@
             <div class="image">
                 <img src="{{ url_for('static', filename='img/face-detection.png') }}" alt="Logo">
             </div>
-            <form action="" enctype="multipart/form-data">
+
+            <form method="POST" action="{{ url_for('Recognition') }}" enctype="multipart/form-data">
                 <div class="inner">
                     <input type="file" name="file" id="file" hidden="hidden">
                     <label for="file" id="label">Elegir Imagen</label>
@@ -28,13 +29,10 @@
                 </div>
                 <input type="submit" value="Cargar" id="btn">
             </form>
-            <!--<form action="{{ url_for('Recognition') }}">
-                <img src="{{ url_for('static', filename='img/search.png') }}" alt="buscar">
-                <input type="text" name="query" placeholder="Consulta" id="buscador">
-                <input type="submit" value="Buscar" id="btn">
-            </form>-->
+
         </div>
     </main>
+
     <footer>
         <div class="year">
             <p>© <script>document.write(new Date().getFullYear())</script>
@@ -49,7 +47,6 @@
 
     <script>
         const file = document.getElementById("file");
-        const labelBtn = document.getElementById("label");
         const textFile = document.getElementById("file_text");
 
         file.addEventListener("change", () => {
