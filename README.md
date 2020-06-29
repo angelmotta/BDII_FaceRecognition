@@ -137,6 +137,38 @@ Al inicio del código se hace una llamada al método `genCaracteristicas()` el c
 
 Para poder mostrar los resultados de la consulta a través de imagenes en el navegador se ha implementado el método `Recognition`. Dicho método se encarga de hacer un trabajo de validación de la consulta, así como también de la entrega de resultados generados por esta.
 
+A continuación, se muestra la implementación:
+
+
+    @app.route("/recognition", methods=['POST'])
+    def Recognition():
+        if request.form['kvalue'] == '':
+            return redirect('/')
+        
+        print(request.files['file'])
+        print(request.form['kvalue'])
+
+        file = request.files['file']
+        kValue = int(request.form['kvalue'])
+        filename = file.filename
+
+        if file and allowed_file(filename):
+            image_path = "uploads/" + filename
+            file.save(image_path)
+            q_pic = genCaracPic(image_path)
+            result = knnSearchED(resDB, q_pic, kValue)
+
+            print(result)
+            results = []
+            for index, score in result:
+                results.append((resDB[index][0], score))
+                print(resDB[index][0])
+                print(score)
+            return render_template("resultados.html", results = results)
+
+        return redirect('/')
+
+
 ### Demostración de la aplicación
 En la siguiente demostración se sube una foto de Britney Spears para realizar la consulta. Internamente se ejecuta el algoritmo KNN Secuencial con cola de prioridad utilizando la distancia eucludiana. El resultado que se muestra en el frontend son los k elementos más similares que se tienen de la colección total de fotos.
 
