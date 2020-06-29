@@ -31,6 +31,9 @@ def ED(x, y):
         res += ((x[i] - y[i])**2)
     return res**0.5
 ```
+Esta función está basada en el siguiente esquema de la distancia euclidiana.
+
+![](images/distancia_euclidiana.png)
 
 ### Distancia Manhattan
 Para calcular la distancia de manhattan, se ha creado una función ```MD()``` a la que se le envían como argumentos dos arreglos y retorna su distancia de manhattan de ambos arreglos, como se muestra a continuación.
@@ -42,6 +45,9 @@ def MD(A, B):
         resultado = resultado + abs(A[i] - B[i])
     return resultado
 ```
+Esta función está basada en el siguiente esquema de la distancia de manhattan.
+
+![](images/distancia_manhattan.png)
 
 ### Experimento 1: Precisión KNN
 Realizamos el experimento de precisión del algoritmo KNN utilizando como objeto de consulta, una foto de la cantante Britney Spears. Nuestra colección de fotos contó con 14 fotos de esta cantante (fotos diferentes a la utilizada en la consulta)
