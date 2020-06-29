@@ -5,7 +5,7 @@ from RTree import buildRTree
 import time
 
 
-dirFotos = "fotos_n12800"
+dirFotos = "fotos_n100"
 resDB = genCaracteristicas(dirFotos)
 q_pic = genCaracPic("fotos_query/britney_query_001.jpg")
 k = 16

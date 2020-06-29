@@ -45,7 +45,7 @@ def Recognition():
         print(result)
         results = []
         for index, score in result:
-            results.append((resDB[index][0], score))
+            results.append((resDB[index][0], round(score, 8)))
             print(resDB[index][0])
             print(score)
         return render_template("resultados.html", results = results)
