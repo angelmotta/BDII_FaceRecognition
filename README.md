@@ -171,7 +171,7 @@ A continuación, se muestra la implementación:
 Como se puede observar, este método se activa cuando se llama a la ruta `/recognition`. Esta es invocada en el instante que el usuario da clic al boton `Cargar` en la página principal. Para asegurarnos que toda los datos entregados sean correctos, se hace una validación donde verificamos que los campos estén estén llenados
 y a su vez se valida que el formato del archivo entregado sea el de una imagen (en nuestro caso, con extensión `png`, `jpg`, `jpeg` o `gif`).
 
-
+Luego de la validación, la imagen porporcionada se guarda en la carpeta `uploads/`. Cabe señalar que la ruta relativa de la imagen se guarda en la variable `image_path`. Después,se procede a generar el vector característico de la imagen con el método `genCaracPic(image_path)` y su valor se almacena en la variale `q_pic`.
 
 ### Demostración de la aplicación
 En la siguiente demostración se sube una foto de Britney Spears para realizar la consulta. Internamente se ejecuta el algoritmo KNN Secuencial con cola de prioridad utilizando la distancia eucludiana. El resultado que se muestra en el frontend son los k elementos más similares que se tienen de la colección total de fotos.
