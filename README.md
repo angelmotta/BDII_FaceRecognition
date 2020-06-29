@@ -132,6 +132,8 @@ Estos resultados se pueden ver en el siguiente gráfico.
 
 ![](images/grafico_1.png)
 
+En este gráfico se puede ver claramente que mientras que el tiempo de consulta del algoritmo KNN-Secuencial tiende a ser lineal a medida que avanza el tiempo, el algoritmo KNN-RTree, por el contrario, tiende a ser logarítmico a medida que avanza el tiempo. Por lo cual, se concluye que para una búsqueda, la mejor opción es usar el algoritmo de KNN-RTree por encima de un algoritmo KNN-Secuencial.
+
 ## Implementación FrontEnd: Motor de Busqueda
 
 ### Demostración de la aplicación
