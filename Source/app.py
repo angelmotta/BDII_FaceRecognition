@@ -11,7 +11,7 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 app = Flask(__name__)
 
 ## Call Backend ##
-dirFotos = "fotos_bd_2"
+dirFotos = "fotos_n100"
 resDB = genCaracteristicas(dirFotos)
 
 
@@ -28,13 +28,16 @@ def upload_image():
 @app.route("/recognition", methods=['POST'])
 def Recognition():
     print(request.files['file'])
+    print(request.form['kvalue'])
+
     file = request.files['file']
+    kValue = int(request.form['kvalue'])
     filename = file.filename
 
     if file and allowed_file(filename):
         file.save("uploads/" + filename)
         q_pic = genCaracPic("uploads/"+filename)
-        result = knnSearchED(resDB, q_pic, 16)
+        result = knnSearchED(resDB, q_pic, kValue)
         print(result)
         for index, score in result:
             print(resDB[index][0])
