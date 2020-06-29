@@ -1,9 +1,19 @@
 from flask import Flask, jsonify, request, redirect, render_template
+from Extraccion import genCaracteristicas, genCaracPic
+from KNNEuclidiano import knnSearchED
+from KNNManhattan import knnSearchMD
+from RTree import buildRTree
+
 import os
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 app = Flask(__name__)
+
+## Call Backend ##
+dirFotos = "fotos_bd_2"
+resDB = genCaracteristicas(dirFotos)
+
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -23,8 +33,14 @@ def Recognition():
 
     if file and allowed_file(filename):
         file.save("uploads/" + filename)
-        return "Hecho"
-        
+        q_pic = genCaracPic("uploads/"+filename)
+        result = knnSearchED(resDB, q_pic, 16)
+        print(result)
+        for index, score in result:
+            print(resDB[index][0])
+            print(score)
+        return "Hecho Post"
+
     return redirect('/')
 
 
