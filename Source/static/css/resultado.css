@@ -42,7 +42,7 @@ main {
 
 .resultados {
     margin-top: 70px;
-    width: 800px;
+    width: 900px;
     max-width: 95vw;
     padding: 10px;
     display: flex;
@@ -53,10 +53,18 @@ main {
 .resultado {
     width: 250px;
     min-height: 300px;
+    padding-bottom: 10px;
     border: 1px solid #d8d8d8;
-    margin: 10px 5px;
+    margin: 10px;
     border-radius: 15px;
     overflow: hidden;
+    transition: box-shadow ease .3s,
+    transform ease .3s;
+}
+
+.resultado:hover {
+    box-shadow: 0 1px 16px #c7c7c7;
+    transform: translateY(-2px);
 }
 
 .resultado .image {
@@ -78,17 +86,30 @@ main {
 
 .resultado .desc .position {
     display: inline-block;
+    padding: 5px;
     font-weight: bold;
     color: white;
-    /*background-image: linear-gradient(to right bottom, #fe958b, #ff8284, #ff6e81, #ff5781, #fd3c84);*/
-    background-image: linear-gradient(to right bottom, #5370f8, #0097ff, #00b8ff, #00d4ff, #3cecfd);
-    padding: 5px;
+    background-color: #0097ff;
+    /*background-image: linear-gradient(to right bottom, #fe958b, #ff8284, #ff6e81, #ff5781, #fd3c84);
+    background-image: linear-gradient(to right bottom, #5370f8, #0097ff, #00b8ff, #00d4ff, #3cecfd);*/
 }
 
 .resultado .desc .name {
-    color: #2b2b2b;
+    color: #383838;
     padding-left: 10px;
 }
+
+.resultado .file_desc .titule {
+    display: inline-block;
+    padding: 6px 5px 0 12px;
+    font-weight: bold;
+    color: #5370f8;
+}
+
+.resultado .file_desc .filename {
+    color: #383838;
+}
+
 
 footer {
     height: 12vh;

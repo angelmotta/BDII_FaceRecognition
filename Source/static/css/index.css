@@ -63,6 +63,10 @@ form {
     width: 400px;
 }
 
+form input {
+    outline: none;
+}
+
 form .inner {
     width: 100%;
     border: 1px solid #d8d8d8;
