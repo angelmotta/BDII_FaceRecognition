@@ -75,14 +75,14 @@ form .inner {
 }
 
 form .n2 {
-    width: 230px;
+    width: 100%;
     margin: auto;
     margin-top: 15px;
 }
 
 form .n2 input {
     -moz-appearance:textfield;
-    width: 55px;
+    width: 85px;
     height: 30px;
     background-color: white;
     border: none;

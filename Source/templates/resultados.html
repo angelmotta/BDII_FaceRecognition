@@ -25,26 +25,30 @@
     <main>
         <section class="resultados">
 
+            {% set number = namespace(value=1)%}
+            {% for element in results %}
             <div class="resultado">
                 <div class="image">
-                    {% set image_name = 'Britney_Spears_0006.jpg' %}
+                    {% set image_name = element[0] %}
                     <img src="{{ url_for('show_image', filename=image_name) }}" alt="_image">
                 </div>
                 <div class="desc">
-                    <span class="position">#1</span>
+                    <span class="position">#{{number.value}}</span>
                     {% set nombre = image_name.split('_') %}
                     <span class="name" >{{nombre[0]}} {{nombre[1]}}</span>
                 </div>
                 <div class="file_desc">
                     <span class="titule">Filename:</span>
-                    <span class="text">image_name</span>
+                    <span class="text">{{image_name}}</span>
                 </div>
                 <div class="file_desc">
                     <span class="titule">Score:</span>
-                    <span class="text">0.9</span>
+                    <span class="text">{{element[1]}}</span>
                     <div class="line"></div>
                 </div>
             </div>
+            {% set number.value = number.value + 1 %}
+            {% endfor %}
 
             
         </section>

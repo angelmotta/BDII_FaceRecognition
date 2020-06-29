@@ -40,10 +40,12 @@ def Recognition():
         result = knnSearchED(resDB, q_pic, kValue)
 
         print(result)
+        results = []
         for index, score in result:
+            results.append((resDB[index][0], score))
             print(resDB[index][0])
             print(score)
-        return render_template("resultados.html")
+        return render_template("resultados.html", results = results)
 
     return redirect('/')
 
