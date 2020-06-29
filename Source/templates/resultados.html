@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <link rel="shortcut icon" href=" {{ url_for('static', filename='img/tweet.ico') }} ">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/resultado.css') }}">
+</head>
+<body>
+
+    <header>
+        <a href="/" class="logo">
+            🧿 Practica4.
+        </a>
+        <!--<form action="{{ url_for('Recognition') }}">
+            <img src="{{ url_for('static', filename='img/search.png') }}" alt="_buscar">
+            <input type="text" name="query" placeholder="{{consulta}}" id="buscador">
+            <input type="submit" value="Buscar" id="btn">
+        </form>-->
+        <p class="description">
+            Base de Datos II
+        </p>
+    </header>
+
+    <main>
+        <section class="resultados">
+
+            <div class="resultado">
+                <div class="image">
+                    {% set image_name = 'Britney_Spears_0006.jpg' %}
+                    <img src="{{ url_for('show_image', filename=image_name) }}" alt="_image">
+                </div>
+                <div class="desc">
+                    <span class="position">#1</span>
+                    {% set nombre = image_name.split('_') %}
+                    <span class="name" >{{nombre[0]}} {{nombre[1]}}</span>
+                </div>
+                <div class="file_desc">
+                    <span class="titule">Filename:</span>
+                    <span class="text">image_name</span>
+                </div>
+                <div class="file_desc">
+                    <span class="titule">Score:</span>
+                    <span class="text">0.9</span>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+            <div class="resultado">
+                <div class="image">
+                    {% set image_name = 'Britney_Spears_0006.jpg' %}
+                    <img src="{{ url_for('show_image', filename=image_name) }}" alt="_image">
+                </div>
+                <div class="info">
+                    <span class="position">#1</span>
+                    {% set nombre = image_name.split('_') %}
+                    <span class="name" >{{nombre[0]}} {{nombre[1]}}</span>
+                </div>
+                <div class="score">
+                    <div class="line"></div>
+                    0.6
+                </div>
+            </div>
+
+            <div class="resultado">
+                <div class="image">
+                    {% set image_name = 'Britney_Spears_0006.jpg' %}
+                    <img src="{{ url_for('show_image', filename=image_name) }}" alt="_image">
+                </div>
+                <div class="info">
+                    <span class="position">#1</span>
+                    {% set nombre = image_name.split('_') %}
+                    <span class="name" >{{nombre[0]}} {{nombre[1]}}</span>
+                </div>
+                <div class="score">
+                    <div class="line"></div>
+                    0.6
+                </div>
+            </div>
+
+            <div class="resultado">
+                <div class="image">
+                    {% set image_name = 'Britney_Spears_0006.jpg' %}
+                    <img src="{{ url_for('show_image', filename=image_name) }}" alt="_image">
+                </div>
+                <div class="info">
+                    <span class="position">#1</span>
+                    {% set nombre = image_name.split('_') %}
+                    <span class="name" >{{nombre[0]}} {{nombre[1]}}</span>
+                </div>
+                <div class="score">
+                    <div class="line"></div>
+                    0.6
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="year">
+            <p>© <script>document.write(new Date().getFullYear())</script>
+                Proyecto. Todos los derechos reservados</p>
+        </div>
+        <div class="names">
+            <p>Angel</p>
+            <p>Piero</p>
+            <p>Jeanlee</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -63,6 +63,10 @@ form {
     width: 400px;
 }
 
+form input {
+    outline: none;
+}
+
 form .inner {
     width: 100%;
     border: 1px solid #d8d8d8;
@@ -78,6 +82,7 @@ form label {
     font-weight: bold;
     cursor: pointer;
     transition: background ease .4s;
+    width: 140px;
 }
 
 form label:hover {
@@ -124,4 +129,9 @@ footer {
 
 .names > p {
     margin-left: 10px;
+}
+
+#kvalue {
+    margin-left: 10px;
+    border: 0px;
 }
