@@ -85,7 +85,7 @@ Se ha realizado una serie de pruebas con diferente cantidad de imágenes en tota
 | N = 800  | 3.437 ms  | 78.976 ms      |
 | N = 1600 | 5.923 ms  | 174.091 ms     |
 | N = 3200 | 13.193 ms | 323.343 ms     |
-| N = 6400 |0.875|0.875|
+| N = 6400 | 31.653 ms | 734.907 ms     |
 | N = 12800|0.875|0.875|
 
 ## Implementación FrontEnd: Motor de Busqueda
