@@ -24,7 +24,7 @@ def knnSearchMD(data, Q, k):
 ### Distancia Euclidiana
 Para calcular la distancia euclidiana, se ha creado una función ```ED()``` a la que se le envían como argumentos dos arreglos (vectores característicos) y retorna su distancia euclidiana, como se muestra a continuación.
 
-```
+```python
 def ED(x, y):
     res = 0
     for i in range(len(x)):
@@ -38,7 +38,7 @@ Esta función está basada en el siguiente concepto de la distancia euclidiana.
 ### Distancia Manhattan
 Para calcular la distancia de manhattan, se ha creado una función ```MD()``` a la que se le envían como argumentos dos arreglos (vectores característicos) y retorna su distancia de manhattan, como se muestra a continuación.
 
-```
+```python
 def MD(A, B):
     resultado = 0
     for i in range(len(A)):
@@ -53,7 +53,7 @@ Esta función está basada en el siguiente concepto de la distancia de manhattan
 Para construir el índice de R-Tree se ha hecho uso de la librería R-Tree para Python (http://toblerity.org/rtree/). 
 Se ha creado una función para la construcción de este índice, la cual recibe como parámetros la data (construído previamente) que contiene la ruta de las imágenes con sus vectores característicos. Como estos vectores tienen una longitud de 128, se ha definido que el índice de R-Tree va a tener 128 dimensiones. Se ha colocado como punto de inicio y final de cada dimensión el mismo vector, por lo que cada dimensión va a tener un punto. Una vez que se construye el índice, este se retorna junto con un diccionario que relaciona el nombre del archivo con el índice que tiene en el R-Tree. La función que construye el índice de R-Tree se muestra a continuación.
 
-```
+```python
 def buildRTree(data):
     dict = {}
     prop = index.Property()
@@ -69,7 +69,7 @@ def buildRTree(data):
 
 Como el argumento de la función que se encarga de recibir las coordenadas de cada dimensión, que contiene el mínimo y máximo, este recibe una tupla de tamaño 2d, donde d es la dimensión, que para este caso es 128, entonces se ha implementado una función que contruye este vector de tamaño 2*128=256. Esta función se muestra a continuación.
 
-```
+```python
 def toArray(row):
     temp = []
     flag = False
@@ -87,7 +87,7 @@ def toArray(row):
 
 La ejecución de las siguientes pruebas se realizaron utilizando el archivo "Main.py" desde el se realiza como primer paso la extracción de los vectores caracteristicos de cada una de las fotos (genCaracteristicas)
 
-```
+```python
 dirFotos = "fotos_n100"
 resDB = genCaracteristicas(dirFotos)
 q_pic = genCaracPic("fotos_query/britney_query_001.jpg")
@@ -158,7 +158,7 @@ Para poder mostrar los resultados de la consulta a través de imagenes en el nav
 
 A continuación, se muestra la implementación:
 
-
+ ```python
     @app.route("/recognition", methods=['POST'])
     def Recognition():
         if request.form['kvalue'] == '':
@@ -186,6 +186,7 @@ A continuación, se muestra la implementación:
             return render_template("resultados.html", results = results)
 
         return redirect('/')
+ ```
 
 Como se puede observar, este método se activa cuando se llama a la ruta `/recognition`. Esta es invocada en el instante que el usuario da clic al boton `Cargar` en la página principal. Para asegurarnos que toda los datos entregados sean correctos, se hace una validación donde verificamos que los campos estén estén llenados
 y a su vez se valida que el formato del archivo entregado sea el de una imagen (en nuestro caso, con extensión `png`, `jpg`, `jpeg` o `gif`).
