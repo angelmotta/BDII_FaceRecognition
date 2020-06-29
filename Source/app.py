@@ -26,7 +26,6 @@ def upload_image():
 
 @app.route("/recognition", methods=['POST'])
 def Recognition():
-    return render_template("resultados.html")
     print(request.files['file'])
     file = request.files['file']
     filename = file.filename
