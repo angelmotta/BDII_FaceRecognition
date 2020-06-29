@@ -49,6 +49,37 @@ Esta función está basada en el siguiente esquema de la distancia de manhattan.
 
 ![](images/distancia_manhattan.png)
 
+### Implementación del KNN con índice RTree
+
+```
+rom rtree import index
+
+def toArray(row):
+    temp = []
+    flag = False
+    for i in range(2):
+        for a in row:
+            if flag:
+                temp.append(a)
+            else:
+                temp.append(a)
+        flag = True
+    return temp
+
+
+def buildRTree(data):
+    dict = {}
+    prop = index.Property()
+    prop.dimension = 128
+    idx128 = index.Index(properties=prop, interleaved=True)
+    count = 0
+    for row in data:
+        dict[count] = row[0]
+        idx128.insert(count, tuple(toArray(row[1])))
+        count += 1
+    return [idx128, dict]
+```
+
 ### Experimento 1: Precisión KNN
 Realizamos el experimento de precisión del algoritmo KNN utilizando como objeto de consulta, una foto de la cantante Britney Spears. Nuestra colección de fotos contó con 14 fotos de esta cantante (fotos diferentes a la utilizada en la consulta)
 
@@ -95,3 +126,4 @@ Se ha realizado una serie de pruebas con diferente cantidad de imágenes en tota
 | N = 12800| 58.183 ms | 1239.772 ms    |
 
 ## Implementación FrontEnd: Motor de Busqueda
+![](images/test.gif)

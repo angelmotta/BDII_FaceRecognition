@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Test</title>
+    <title>Resultados</title>
     <link rel="shortcut icon" href=" {{ url_for('static', filename='img/tweet.ico') }} ">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/resultado.css') }}">
 </head>
@@ -24,6 +24,11 @@
 
     <main>
         <section class="resultados">
+            {%set personaje = results[0][0].split('_')%}
+            <div class="cabecera">
+                <h2>Resultados de la consulta</h2>
+                <p>Posible personaje <b>{{personaje[0]}} {{personaje[1]}}</b></p>
+            </div>
 
             {% set number = namespace(value=1)%}
             {% for element in results %}
@@ -38,7 +43,7 @@
                     <span class="name" >{{nombre[0]}} {{nombre[1]}}</span>
                 </div>
                 <div class="file_desc">
-                    <span class="titule">Filename:</span>
+                    <span class="titule">File:</span>
                     <span class="text">{{image_name}}</span>
                 </div>
                 <div class="file_desc">
