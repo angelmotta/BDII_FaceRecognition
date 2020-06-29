@@ -176,4 +176,6 @@ Luego de la validación, la imagen porporcionada se guarda en la carpeta `upload
 ### Demostración de la aplicación
 En la siguiente demostración se sube una foto de Britney Spears para realizar la consulta. Internamente se ejecuta el algoritmo KNN Secuencial con cola de prioridad utilizando la distancia eucludiana. El resultado que se muestra en el frontend son los k elementos más similares que se tienen de la colección total de fotos.
 
+Para los resulados que coiciden con la imagen que el usuario provee, para el frontend estamos utlizando los K vecinos más cercanos con la distancia euclideana. Para obtener dicho resultado, se emplea el método `knnSearchED(resDB, q_pic, kValue)`, el cual devuelve una lista de tuplas con las etiquetas de las imagenes y sus correspondientes distancias.
+
 ![](images/test.gif)
