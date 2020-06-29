@@ -50,23 +50,9 @@ Esta función está basada en el siguiente esquema de la distancia de manhattan.
 ![](images/distancia_manhattan.png)
 
 ### Implementación del KNN con índice RTree
+Para construir el índice de R-Tree se ha hecho uso de la librería R-Tree para Python y se ha creado una función para la construcción de este índice, la cual recibe como parámetros la data que se ha construído anteriormente que contiene la ruta de las imágenes y los vectores característicos. Como estos vectores tienen una longitud de 128, se ha colocado que el índice de R-Tree va a tener 128 dimensiones. Se ha colocado como punto de inicio y final de cada dimensión el mismo vector, por lo que cada dimensión solamente va a tener un punto. Una vez que se construye el índice, se retorna junto con un diccionario que va a indexar el nombre del archivo con el índice que tiene en el R-Tree. La función que construye el índice de R-Tree se muestra a continuación.
 
 ```
-rom rtree import index
-
-def toArray(row):
-    temp = []
-    flag = False
-    for i in range(2):
-        for a in row:
-            if flag:
-                temp.append(a)
-            else:
-                temp.append(a)
-        flag = True
-    return temp
-
-
 def buildRTree(data):
     dict = {}
     prop = index.Property()
@@ -78,6 +64,22 @@ def buildRTree(data):
         idx128.insert(count, tuple(toArray(row[1])))
         count += 1
     return [idx128, dict]
+```
+
+Como el argumento de la función que se encarga de recibir las coordenadas de cada dimensión, que contiene el mínimo y máximo, recibe solamente una tupla de tamaño 2d, donde d es la dimensión, que para este caso es 128, entonces se ha implementado una función que contruye este vector de tamaño 2*128=256. Esta función se muestra a continuación.
+
+```
+def toArray(row):
+    temp = []
+    flag = False
+    for i in range(2):
+        for a in row:
+            if flag:
+                temp.append(a)
+            else:
+                temp.append(a)
+        flag = True
+    return temp
 ```
 
 ### Experimento 1: Precisión KNN
