@@ -129,6 +129,11 @@ Se ha realizado una serie de pruebas con diferente cantidad de imágenes en tota
 
 ## Implementación FrontEnd: Motor de Busqueda
 
+### Llamada para la generación de los vectores característicos
+
+Al inicio del código se hace una llamada al método `genCaracteristicas()` el cual se encarga de generar los vectores característicos de las imagenes almacenadas internamente. El resultado de dicho método se almacena en la variable global `resDB`, la cuál será utilizada posteriormente.
+
+
 ### Demostración de la aplicación
 En la siguiente demostración se sube una foto de Britney Spears para realizar la consulta. Internamente se ejecuta el algoritmo KNN Secuencial con cola de prioridad utilizando la distancia eucludiana. El resultado que se muestra en el frontend son los k elementos más similares que se tienen de la colección total de fotos.
 
