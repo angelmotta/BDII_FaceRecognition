@@ -20,6 +20,9 @@ for index, score in result:
     print(resDB[index][0])
     print(score)
 
-# indice = buildRTree(resDB)
-# print(indice)
-# hits = list(indice.nearest())
+result = buildRTree(resDB)
+indice = result[0]
+print(indice)
+hits = list(indice.nearest(tuple(q_pic), 16))
+for i in hits:
+    print(result[1][i])

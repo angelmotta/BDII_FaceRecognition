@@ -1,8 +1,27 @@
 from rtree import index
 
 
+def toArray(row):
+    temp = []
+    flag = False
+    for i in range(2):
+        for a in row:
+            if flag:
+                temp.append(a)
+            else:
+                temp.append(a)
+        flag = True
+    return temp
+
+
 def buildRTree(data):
-    idx = index.Index(interleaved=True)
+    dict = {}
+    prop = index.Property()
+    prop.dimension = 128
+    idx128 = index.Index(properties=prop, interleaved=True)
+    count = 0
     for row in data:
-        idx.insert(row[0], tuple(row[1]))
-    return idx
+        dict[count] = row[0]
+        idx128.insert(count, tuple(toArray(row[1])))
+        count += 1
+    return [idx128, dict]
